@@ -37,10 +37,10 @@ Trước tiên, chúng ta cần nạp firmware cho mạch Makerbot và module ES
 - Firmware cho mạch Makerbot: [firmware/makerbot_fw](firmware/makerbot_fw).
 - Firmware cho mạch ESP32-CAM: [firmware/esp32_cam_fw](firmware/esp32_cam_fw).
 
-**Nạp firmware với Arduino IDE:** Trong trường hợp các bạn muốn dùng Arduino IDE cho việc này, có thể tạo các project Arduino mới và sao chép code từ 2 tệp tương ứng như sau:
+**Nạp firmware với Arduino IDE:**
 
-- Firmware cho mạch Makerbot: [firmware/makerbot_fw/src/main.cpp](firmware/makerbot_fw/src/main.cpp).
-- Firmware cho mạch ESP32-CAM: [firmware/esp32_cam_fw/src/main.cpp](firmware/esp32_cam_fw/src/main.cpp).
+- Firmware cho mạch Makerbot: [firmware_arduino/makerbot_fw](firmware_arduino/makerbot_fw).
+- Firmware cho mạch ESP32-CAM: [firmware_arduino/esp32_cam_fw](firmware_arduino/esp32_cam_fw).
 
 Đối với Arduino IDE, các bạn cần cài đặt thêm thư viện [Adafruit_PWMServoDriver](https://www.arduino.cc/reference/en/libraries/adafruit-pwm-servo-driver-library/).
 
