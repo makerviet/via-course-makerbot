@@ -37,12 +37,14 @@ Trước tiên, chúng ta cần nạp firmware cho mạch Makerbot và module ES
 - Firmware cho mạch Makerbot: [firmware/makerbot_fw](firmware/makerbot_fw).
 - Firmware cho mạch ESP32-CAM: [firmware/esp32_cam_fw](firmware/esp32_cam_fw).
 
-**Nạp firmware với Arduino IDE:**
+**Hiên tại code firmware chưa hỗ trợ Arduino IDE**
+
+<!-- **Nạp firmware với Arduino IDE:**
 
 - Firmware cho mạch Makerbot: [firmware_arduino/makerbot_fw](firmware_arduino/makerbot_fw).
-- Firmware cho mạch ESP32-CAM: [firmware_arduino/esp32_cam_fw](firmware_arduino/esp32_cam_fw).
+- Firmware cho mạch ESP32-CAM: [firmware_arduino/esp32_cam_fw](firmware_arduino/esp32_cam_fw). -->
 
-Đối với Arduino IDE, các bạn cần cài đặt thêm thư viện [Adafruit_PWMServoDriver](https://www.arduino.cc/reference/en/libraries/adafruit-pwm-servo-driver-library/).
+<!-- Đối với Arduino IDE, các bạn cần cài đặt thêm thư viện [Adafruit_PWMServoDriver](https://www.arduino.cc/reference/en/libraries/adafruit-pwm-servo-driver-library/). -->
 
 ### 3. Kiểm tra tín hiệu hình ảnh từ ESP32-CAM
 
@@ -62,5 +64,18 @@ python read_cam.py
 
 **Hình ảnh thu được từ camera ESP32-CAM**
 
+### 4. Ví dụ về điều khiển bằng bàn phím
 
+
+Cài đặt môi trường Python từ tệp `examples/keyboard_control/requirements.txt` bằng cách gõ `pip install -r requirements.txt`.
+
+Chạy ví dụ điều khiển bằng bàn phím cho VIABot:
+
+```
+python keyboard_control.py
+```
+
+![](images/keyboard_control.png)
+
+Một cửa sổ điều khiển hiện lên như trên. Dùng các phím mũi tên để thử điều khiển các motor của VIABot.
 

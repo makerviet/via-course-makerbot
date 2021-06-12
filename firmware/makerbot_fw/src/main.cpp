@@ -36,7 +36,6 @@ void setup() {
     Wire.setClock(400000);
 }
 
-
 // 'state' is the motor directions, the real direction also depends on how
 // mottor wires are connected to the motorshield
 void setPWM(int chan1, int chan2, bool state, uint16_t val) {
@@ -58,12 +57,13 @@ void setPWM(int chan1, int chan2, bool state, uint16_t val) {
 // 0 -> 100: Forward
 // 0 -> -100: Backward
 void controlWheels(int16_t leftWheel, int16_t rightWheel) {
+
     leftWheel = leftWheel * 40.96;
-    rightWheel = rightWheel * 40.96;
+    rightWheel = rightWheel * 40.96;    
 
     //"0x8000 & leftWheel" is to get the signed bit of the speed varible
     // only works with 16 bits integer(int16_t), if you want to change
-    // variblle type to int (32 bits), change the value 0x8000 to 0x800000
+    // variable type to int (32 bits), change the value 0x8000 to 0x800000
     setPWM(DC_Motor_LEFT, 0x8000 & leftWheel, abs(leftWheel));
     setPWM(DC_Motor_RIGHT, 0x8000 & rightWheel, abs(rightWheel));
 }
@@ -80,17 +80,16 @@ void loop() {
 
         // Parse UDP packet
         int len = Udp.read(packetBuffer, 255);
-        if (len > 0) packetBuffer[len - 1] = 0;
+        if (len > 0) packetBuffer[len] = 0;
         char *token = strtok(packetBuffer, " ");
-        if (strcasecmp(token,
-                       "SET_CONTROL_IP")) {  // Packet to set controller's IP
-            token = strtok(0, " ");
+        if (strcasecmp(token, "SET_CONTROL_IP") == 0) {  // Packet to set controller's IP
+            token = strtok(NULL, " ");
             controlIP.fromString(String(token));
-        } else if (strcasecmp(token,
-                              "CONTROL_WHEEL")) {  // Packet to set wheel speed
-            token = strtok(0, " ");
-            int leftWheel = atoi(token);
-            int rightWheel = atoi(token);
+        } else if (strcasecmp(token, "CONTROL_WHEEL") == 0) {  // Packet to set wheel speed
+            token = strtok(NULL, " ");
+            int16_t leftWheel = atoi(token);
+            token = strtok(NULL, " ");
+            int16_t rightWheel = atoi(packetBuffer);
             controlWheels(leftWheel, rightWheel);
         }
         lastSignalTime =
@@ -98,11 +97,11 @@ void loop() {
     }
 
     // Send some data: IMU, sensors?
-    Udp.beginPacket(controlIP, 9999);
-    char buf[20];
-    int someData = 12345;
-    sprintf(buf, "%d", someData);
-    Udp.printf(buf);
-    Udp.printf("\r\n");
-    Udp.endPacket();
+    // Udp.beginPacket(controlIP, 9999);
+    // char buf[20];
+    // int someData = 12345;
+    // sprintf(buf, "%d", someData);
+    // Udp.printf(buf);
+    // Udp.printf("\r\n");
+    // Udp.endPacket();
 }
