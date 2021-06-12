@@ -58,6 +58,8 @@ void setPWM(int chan1, int chan2, bool state, uint16_t val) {
 // 0 -> -100: Backward
 void controlWheels(int16_t leftWheel, int16_t rightWheel) {
 
+    Serial.println(String("Control ") + String(leftWheel) + " " + String(rightWheel));
+
     leftWheel = leftWheel * 40.96;
     rightWheel = rightWheel * 40.96;    
 
