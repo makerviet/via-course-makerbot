@@ -48,7 +48,19 @@ Trước tiên, chúng ta cần nạp firmware cho mạch Makerbot và module ES
 
 Kết nối vào WIFI `VIA-MakerBot-01` và mở trình duyệt web, truy cập: [http://192.168.4.1](http://192.168.4.1) để xem hình ảnh thu được từ camera.
 
+**Đọc camera từ ESP32-CAM bằng Python:**
 
+Để đọc camera từ Python, máy tính của các bạn cần được cài đặt Python và package OpenCV. Trước tiên hãy cài đặt Python với trình quản lý gói Pip, sau đó dùng Pip để cài OpenCV: `pip install opencv-python`. BTC khuyến khích các bạn tìm hiểu về Anaconda / Miniconda để quản lý môi trường cho Python. Cách cài đặt Anaconda có thể được tìm thấy tại [đây](https://via.makerviet.org/vi/docs/simulation/installation/).
+
+Chạy code đọc camera từ ESP32: Các bạn kết nối vào WIFI của mạch ESP32-CAM, sau đó chạy chương trình tại [examples/read_esp32_cam/read_cam.py](examples/read_esp32_cam/read_cam.py).
+
+```
+python read_cam.py
+```
+
+![](images/esp32_cam_image.png)
+
+**Hình ảnh thu được từ camera ESP32-CAM**
 
 
 
