@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <WiFi.h>
-#include <DNSServer.h>
 
 #include "esp_camera.h"
 #include "esp_http_server.h"
@@ -17,9 +16,6 @@ const char* password = "makerbotisfun";
 /* Soft AP network parameters */
 IPAddress apIP(192, 168, 4, 1);
 IPAddress netMsk(255, 255, 255, 0);
-
-const byte DNS_PORT = 53;
-DNSServer dnsServer;
 
 #define PART_BOUNDARY "123456789000000000000987654321"
 
@@ -240,14 +236,9 @@ void setup() {
     Serial.print("AP IP address: ");
     Serial.println(WiFi.softAPIP());
 
-    /* Setup the DNS server redirecting all the domains to the apIP */  
-    dnsServer.setErrorReplyCode(DNSReplyCode::NoError);
-    dnsServer.start(DNS_PORT, "*", apIP);
-    // Start streaming web server
     startCameraServer();
 }
 
 void loop() {
-  dnsServer.processNextRequest();
-  delay(0.1);  
+  delay(1);  
 }
