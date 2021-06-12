@@ -1,5 +1,8 @@
 import pygame
 import socket
+import urllib.request
+import cv2
+import numpy as np
 
 pygame.init()
 pygame.display.set_caption('VIABot controller')
@@ -10,6 +13,10 @@ CONTROL_IP = "192.168.4.100"
 CONTROL_PORT = 9999
 sk = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
 sk.settimeout(3000)
+
+CAM_URL = "http://192.168.4.1:80"
+stream = urllib.request.urlopen(CAM_URL)
+bytes = bytes()
 
 def set_speed(left_wheel, right_wheel):
     """Set speed for robot wheel
@@ -28,7 +35,7 @@ origin_x = rect.x
 origin_y = rect.y
 run = True
 while run:
-    clock.tick(20)
+    # clock.tick(10)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -70,6 +77,21 @@ while run:
     window.fill(0)
     pygame.draw.rect(window, color, rect)
     pygame.display.flip()
+
+    bytes += stream.read(1024)
+    a = bytes.find(b'\xff\xd8')
+    b = bytes.find(b'\xff\xd9')
+
+    if a != -1 and b != -1:
+        image = bytes[a:b+2]
+        bytes = bytes[b+2:]
+        try:
+            image = cv2.imdecode(np.frombuffer(
+                image, dtype=np.uint8), cv2.IMREAD_COLOR)
+        except:
+            continue
+        cv2.imshow("Image", image)
+        cv2.waitKey(1)
 
 pygame.quit()
 exit()

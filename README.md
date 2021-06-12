@@ -79,3 +79,10 @@ python keyboard_control.py
 
 Một cửa sổ điều khiển hiện lên như trên. Dùng các phím mũi tên để thử điều khiển các motor của VIABot.
 
+**Điều khiển kết hợp xem camera từ mạch ESP32-Cam:**
+
+```
+python keyboard_control_with_cam.py
+```
+
+![](images/keyboard_control_with_cam.png)
