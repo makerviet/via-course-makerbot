@@ -34,13 +34,13 @@ Trước tiên, chúng ta cần nạp firmware cho mạch Makerbot và module ES
 
 **Nạp firmware với PlatformIO:** BTC khuyến khích sử dụng PlatformIO được cài đặt trên trình chỉnh sửa code là Visual Studio Code. Sau đó, các bạn có thể nạp firmware bằng cách dùng PlatformIO mở các folder sau, biên dịch và nạp code lên các mạch.
 
-- Firmware cho mạch Makerbot: [Firmware/VIA-Makerbot-Firmware](Firmware/VIA-Makerbot-Firmware).
-- Firmware cho mạch ESP32-CAM: [Firmware/VIA-Cam-Firmware](Firmware/VIA-Cam-Firmware).
+- Firmware cho mạch Makerbot: [firmware/makerbot_fw](firmware/makerbot_fw).
+- Firmware cho mạch ESP32-CAM: [firmware/esp32_cam_fw](firmware/esp32_cam_fw).
 
 **Nạp firmware với Arduino IDE:** Trong trường hợp các bạn muốn dùng Arduino IDE cho việc này, có thể tạo các project Arduino mới và sao chép code từ 2 tệp tương ứng như sau:
 
-- Firmware cho mạch Makerbot: [Firmware/VIA-Makerbot-Firmware/src/main.cpp](Firmware/VIA-Makerbot-Firmware/src/main.cpp).
-- Firmware cho mạch ESP32-CAM: [Firmware/VIA-Cam-Firmware/src/main.cpp](Firmware/VIA-Cam-Firmware/src/main.cpp).
+- Firmware cho mạch Makerbot: [firmware/makerbot_fw/src/main.cpp](firmware/makerbot_fw/src/main.cpp).
+- Firmware cho mạch ESP32-CAM: [firmware/esp32_cam_fw/src/main.cpp](firmware/esp32_cam_fw/src/main.cpp).
 
 Đối với Arduino IDE, các bạn cần cài đặt thêm thư viện [Adafruit_PWMServoDriver](https://www.arduino.cc/reference/en/libraries/adafruit-pwm-servo-driver-library/).
 
