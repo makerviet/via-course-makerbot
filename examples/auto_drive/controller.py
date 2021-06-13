@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import socket
-from utils import *
 from config import CONTROL_IP, CONTROL_PORT
 
 sk = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
