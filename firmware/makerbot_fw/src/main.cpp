@@ -3,8 +3,8 @@
 #include <WiFiUdp.h>
 #include <Wire.h>
 
-#define DC_Motor_LEFT 8, 9
-#define DC_Motor_RIGHT 10, 11
+#define DC_Motor_LEFT 10, 11
+#define DC_Motor_RIGHT 8, 9
 // #define DC_Motor_3
 // #define DC_Motor_4
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
@@ -44,12 +44,12 @@ void setPWM(int chan1, int chan2, bool state, uint16_t val) {
     // Serial.println(state);
     if (state)  // state = 1 clockwise rotation
     {
-        pwm.setPWM(chan1, 0, 4096);
-        pwm.setPWM(chan2, val, 0);
+        pwm.setPWM(chan1, 0, 4095);
+        pwm.setPWM(chan2, val, 4095 - val);
     } else  // state = 0 couter-clockwise rotation
     {
-        pwm.setPWM(chan2, 0, 4096);
-        pwm.setPWM(chan1, val, 0);
+        pwm.setPWM(chan2, 0, 4095);
+        pwm.setPWM(chan1, val, 4095 - val);
     }
 }
 
