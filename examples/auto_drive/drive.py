@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import time
 
-from controller import calculate_control_signal, send_control, set_control_ip
+from controller import calculate_control_signal, send_control, set_control_ip, find_lane_lines
 from config import CAM_URL
 
 stream = urllib.request.urlopen(CAM_URL)
@@ -36,13 +36,15 @@ while True:
                 exit(0)
             continue
 
+        left_point, right_point, im_center, draw = find_lane_lines(
+        image, draw=True)
+        cv2.imshow("Lane lines", draw)
+        cv2.waitKey(1)
+
         # Calculate speed and steering angle
-        steering = calculate_control_signal(image.copy())
-
-        if steering is None:
-            steering = 0
-
-        send_control(steering)
+        left_motor_speed, right_motor_speed = calculate_control_signal(left_point, right_point, im_center)
+        send_control(left_motor_speed, right_motor_speed)
 
         if cv2.waitKey(1) == 27:
+            send_control(0, 0)
             exit(0)

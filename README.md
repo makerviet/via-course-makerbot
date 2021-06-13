@@ -86,3 +86,24 @@ python keyboard_control_with_cam.py
 ```
 
 ![](images/keyboard_control_with_cam.png)
+
+
+### 5. Ví dụ về điều khiển xe tự lái đi theo vạch kẻ đường
+
+Dán vạch kẻ đường cho VIABot như hình:
+
+![](images/car_setup.png)
+
+![](images/car_setup_2.png)
+
+Mở terminal trong folder `examples/auto_drive` và chạy ví dụ:
+
+```
+python drive.py
+```
+
+Các cửa sổ thể hiện sự phân tích đường đi sẽ hiện lên nếu kết nối thành công với ESP32-CAM.
+
+![](images/lane_line_detection.png)
+
+Chỉnh góc xoay của camera để nhìn thấy vạch kẻ đường. Các bạn nên để camera ở trên cao khoảng 15-20 cm, chúc đầu xuống một chút để đạt góc nhìn tốt nhất. Tiếp đó chỉnh các tham số và thuật toán tính toán trong hàm `calculate_control_signal()` của tệp [examples/auto_drive/controller.py](examples/auto_drive/controller.py).

@@ -12,12 +12,30 @@ def set_control_ip():
     control_msg = "SET_CONTROL_IP {}".format(ip).encode('ascii')
     sk.sendto(control_msg, (CONTROL_IP, CONTROL_PORT))
 
-def send_control(steering):
+def send_control(left_motor_speed, right_motor_speed):
     """Convert steering and throttle signals to a suitable format and send them to ESP32 bot"""
+    control_msg = "CONTROL_WHEEL {} {}".format(
+        left_motor_speed, right_motor_speed).encode('ascii')
+    sk.sendto(control_msg, (CONTROL_IP, CONTROL_PORT))
 
+
+def calculate_control_signal(left_point, right_point, im_center):
+    """Calculate control signal"""
+    
+    if left_point == -1 or right_point == -1:
+        left_motor_speed = right_motor_speed = 30
+        return left_motor_speed, right_motor_speed
+
+    # Calculate difference between car center point and image center point
+    center_point = (right_point + left_point) // 2
+    center_diff = center_point - im_center
+
+    # Calculate steering angle from center point difference
+    steering = -float(center_diff * 0.03)
     steering = min(1, max(-1, steering))
     throttle = 0.5
 
+    # From steering, calculate left/right motor speed
     left_motor_speed = 0
     right_motor_speed = 0
 
@@ -30,31 +48,10 @@ def send_control(steering):
 
     left_motor_speed = int(left_motor_speed * 100)
     right_motor_speed = int(right_motor_speed * 100)
-
-    control_msg = "CONTROL_WHEEL {} {}".format(
-        left_motor_speed, right_motor_speed).encode('ascii')
-    sk.sendto(control_msg, (CONTROL_IP, CONTROL_PORT))
+    
+    return left_motor_speed, right_motor_speed
 
 
-def calculate_control_signal(image):
-    """Calculate control signal from image"""
-    steering = 0
-
-    left_point, right_point, im_center, draw = find_lane_lines(
-        image, draw=True)
-
-    cv2.imshow("Lane lines", draw)
-    cv2.waitKey(1)
-    if left_point != -1 and right_point != -1:
-
-        # Calculate difference between car center point and image center point
-        center_point = (right_point + left_point) // 2
-        center_diff = center_point - im_center
-
-        # Calculate steering angle from center point difference
-        steering = -float(center_diff * 0.03)
-
-    return steering
 
 def grayscale(img):
     """Convert image to grayscale"""
