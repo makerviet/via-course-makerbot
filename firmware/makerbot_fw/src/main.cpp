@@ -44,12 +44,12 @@ void setPWM(int chan1, int chan2, bool state, uint16_t val) {
     // Serial.println(state);
     if (state)  // state = 1 clockwise rotation
     {
-        pwm.setPWM(chan1, 0, val);
-        pwm.setPWM(chan2, 4096, 0);
+        pwm.setPWM(chan1, 0, 4096);
+        pwm.setPWM(chan2, val, 0);
     } else  // state = 0 couter-clockwise rotation
     {
-        pwm.setPWM(chan2, 0, val);
-        pwm.setPWM(chan1, 4096, 0);
+        pwm.setPWM(chan2, 0, 4096);
+        pwm.setPWM(chan1, val, 0);
     }
 }
 
@@ -91,7 +91,7 @@ void loop() {
             token = strtok(NULL, " ");
             int16_t leftWheel = atoi(token);
             token = strtok(NULL, " ");
-            int16_t rightWheel = atoi(packetBuffer);
+            int16_t rightWheel = atoi(token);
             controlWheels(leftWheel, rightWheel);
         }
         lastSignalTime =
