@@ -1,11 +1,4 @@
-# Starter Code - Viet Nam STEAM Challenge
-
-![](images/vsc.jpg)
-
-Repo này chứa mã nguồn cho starter code của Viet Nam STEAM Challenge 2021, cung cấp các ví dụ về điều khiển robot tự hành qua mạch VIA Makerbot và các ứng dụng AI có thể làm được với phần cứng này.
-
-**Thông tin cuộc thi:** <https://via.makerviet.org/vi/docs/vsc-2021/thong-tin/>.
-
+# Khóa học VIA - Triển khai trên phần cứng Makerbot
 ## I. Nạp firmware và kiểm tra phần cứng
 
 ### 1. Thiết kế phần cứng
