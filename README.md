@@ -25,7 +25,9 @@ Các bạn có thể thay đổi thông tin này bằng cách sửa code và n�
 
 Trước tiên, chúng ta cần nạp firmware cho mạch Makerbot và module ESP32-CAM.
 
-**Nạp firmware với PlatformIO:** BTC khuyến khích sử dụng PlatformIO được cài đặt trên trình chỉnh sửa code là Visual Studio Code. Sau đó, các bạn có thể nạp firmware bằng cách dùng PlatformIO mở các folder sau, biên dịch và nạp code lên các mạch. Hướng dẫn cài đặt và sử dụng PlatformIO để nạp firmware các bạn có thể truy cập tại [đây](docs/Guide-PlatformIO-Windows-VSC2021.pdf).
+**Nạp firmware với PlatformIO: Chúng tôi khuyến khích sử dụng PlatformIO cài đặt trên Visual Studio Code để thực hiện nạp firmware. Sau đó, các bạn có thể nạp firmware bằng cách dùng PlatformIO mở các folder sau, biên dịch và nạp code lên các mạch. Hướng dẫn cài đặt và sử dụng PlatformIO để nạp firmware các bạn có thể truy cập tại [đây](docs/Guide-PlatformIO-Windows-VSC2021.pdf).
+
+Các bạn cần cài đặt thêm Driver CH340 khi sử dụng với Windows theo hướng dẫn tại đây: <https://www.arduined.eu/ch340-windows-10-driver-download/>.
 
 - Firmware cho mạch Makerbot: [firmware/makerbot_fw](firmware/makerbot_fw).
 - Firmware cho mạch ESP32-CAM: [firmware/esp32_cam_fw](firmware/esp32_cam_fw).
