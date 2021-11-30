@@ -5,7 +5,7 @@
 
 Để chạy được các ví dụ demo, các bạn cần có các linh kiện phần cứng sau:
 
-- Mạch Makerbot để điều khiển động cơ, đọc cảm biến: <https://via.makerviet.org/vi/docs/hardware/design/>. Mạch này đã được BTC tặng cho mỗi đội tham gia.
+- Mạch Makerbot để điều khiển động cơ, đọc cảm biến: <https://via.makerviet.org/vi/docs/hardware/design/>.
 - Module ESP32-CAM như một phần mở rộng của mạch Makerbot để đọc camera: <https://bit.ly/3fFHPOe>.
 - Khung xe robot tròn hoặc một khung xe tương đương có lắp động cơ 5V: <https://bit.ly/3plS8u8>.
 - Các linh kiện khác: Pin, sạc, dây nối.
@@ -25,19 +25,12 @@ Các bạn có thể thay đổi thông tin này bằng cách sửa code và n�
 
 Trước tiên, chúng ta cần nạp firmware cho mạch Makerbot và module ESP32-CAM.
 
-**Nạp firmware với PlatformIO:** BTC khuyến khích sử dụng PlatformIO được cài đặt trên trình chỉnh sửa code là Visual Studio Code. Sau đó, các bạn có thể nạp firmware bằng cách dùng PlatformIO mở các folder sau, biên dịch và nạp code lên các mạch. Hướng dẫn cài đặt và sử dụng PlatformIO để nạp firmware các bạn có thể truy cập tại [đây](docs/Guide-PlatformIO-Windows-VSC2021.pdf) (Đóng góp bởi Việt Anh - team VEX).
+**Nạp firmware với PlatformIO:** BTC khuyến khích sử dụng PlatformIO được cài đặt trên trình chỉnh sửa code là Visual Studio Code. Sau đó, các bạn có thể nạp firmware bằng cách dùng PlatformIO mở các folder sau, biên dịch và nạp code lên các mạch. Hướng dẫn cài đặt và sử dụng PlatformIO để nạp firmware các bạn có thể truy cập tại [đây](docs/Guide-PlatformIO-Windows-VSC2021.pdf).
 
 - Firmware cho mạch Makerbot: [firmware/makerbot_fw](firmware/makerbot_fw).
 - Firmware cho mạch ESP32-CAM: [firmware/esp32_cam_fw](firmware/esp32_cam_fw).
 
 **Hiên tại code firmware chưa hỗ trợ Arduino IDE**
-
-<!-- **Nạp firmware với Arduino IDE:**
-
-- Firmware cho mạch Makerbot: [firmware_arduino/makerbot_fw](firmware_arduino/makerbot_fw).
-- Firmware cho mạch ESP32-CAM: [firmware_arduino/esp32_cam_fw](firmware_arduino/esp32_cam_fw). -->
-
-<!-- Đối với Arduino IDE, các bạn cần cài đặt thêm thư viện [Adafruit_PWMServoDriver](https://www.arduino.cc/reference/en/libraries/adafruit-pwm-servo-driver-library/). -->
 
 ### 3. Kiểm tra tín hiệu hình ảnh từ ESP32-CAM
 
