@@ -25,7 +25,7 @@ Các bạn có thể thay đổi thông tin này bằng cách sửa code và n�
 
 Trước tiên, chúng ta cần nạp firmware cho mạch Makerbot và module ESP32-CAM.
 
-**Nạp firmware với PlatformIO: Chúng tôi khuyến khích sử dụng PlatformIO cài đặt trên Visual Studio Code để thực hiện nạp firmware. Sau đó, các bạn có thể nạp firmware bằng cách dùng PlatformIO mở các folder sau, biên dịch và nạp code lên các mạch. Hướng dẫn cài đặt và sử dụng PlatformIO để nạp firmware các bạn có thể truy cập tại [đây](docs/Guide-PlatformIO-Windows-VSC2021.pdf).
+**Nạp firmware với PlatformIO:** Chúng tôi khuyến khích sử dụng PlatformIO cài đặt trên Visual Studio Code để thực hiện nạp firmware. Sau đó, các bạn có thể nạp firmware bằng cách dùng PlatformIO mở các folder sau, biên dịch và nạp code lên các mạch. Hướng dẫn cài đặt và sử dụng PlatformIO để nạp firmware các bạn có thể truy cập tại [đây](docs/Guide-PlatformIO-Windows-VSC2021.pdf).
 
 Các bạn cần cài đặt thêm Driver CH340 khi sử dụng với Windows theo hướng dẫn tại đây: <https://www.arduined.eu/ch340-windows-10-driver-download/>.
 
@@ -40,7 +40,7 @@ Kết nối vào WIFI `VIA-MakerBot-01` và mở trình duyệt web, truy cập:
 
 **Đọc camera từ ESP32-CAM bằng Python:**
 
-Để đọc camera từ Python, máy tính của các bạn cần được cài đặt Python và package OpenCV. Trước tiên hãy cài đặt Python với trình quản lý gói Pip, sau đó dùng Pip để cài OpenCV: `pip install opencv-python`. BTC khuyến khích các bạn tìm hiểu về Anaconda / Miniconda để quản lý môi trường cho Python. Cách cài đặt Anaconda có thể được tìm thấy tại [đây](https://via.makerviet.org/vi/docs/simulation/installation/).
+Để đọc camera từ Python, máy tính của các bạn cần được cài đặt Python và package OpenCV. Trước tiên hãy cài đặt Python với trình quản lý gói Pip, sau đó dùng Pip để cài OpenCV: `pip install opencv-python`. Chúng tôi khuyến khích các bạn tìm hiểu về Anaconda / Miniconda để quản lý môi trường cho Python. Cách cài đặt Anaconda có thể được tìm thấy tại [đây](https://via.makerviet.org/vi/docs/simulation/installation/).
 
 Chạy code đọc camera từ ESP32: Các bạn kết nối vào WIFI của mạch ESP32-CAM, sau đó chạy chương trình tại [examples/read_esp32_cam/read_cam.py](examples/read_esp32_cam/read_cam.py).
 
